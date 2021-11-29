@@ -1,0 +1,17 @@
+REGEDIT
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+
+HKEY_CLASSES_ROOT\MFCComServerBGColorTest.Application = MFCComServerBGColorTest Application
+
+
+HKEY_CLASSES_ROOT\MFCComServerBGColorTest.Application\CLSID = {FA796308-1FB5-4289-B5DD-504D8499088E}
+
+HKEY_CLASSES_ROOT\CLSID\{FA796308-1FB5-4289-B5DD-504D8499088E} = MFCComServerBGColorTest Application
+HKEY_CLASSES_ROOT\CLSID\{FA796308-1FB5-4289-B5DD-504D8499088E}\ProgId = MFCComServerBGColorTest.Application
+
+
+HKEY_CLASSES_ROOT\CLSID\{FA796308-1FB5-4289-B5DD-504D8499088E}\LocalServer32 = MFCComServerBGColorTest.EXE

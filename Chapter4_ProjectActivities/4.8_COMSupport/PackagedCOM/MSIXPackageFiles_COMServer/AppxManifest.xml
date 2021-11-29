@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" 
+         xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" 
+         xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" 
+         xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" 
+         xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" 
+         xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+         xmlns:desktop2="http://schemas.microsoft.com/appx/manifest/desktop/windows10/2"
+         xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10">
+  
+  <Identity Name="MSIX-ComServer-BGColor-Test" ProcessorArchitecture="x86" Publisher="CN=Acresso Test Root, O=Organization, OU=Org Unit, L=Schaumburg, S=IL, C=US" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>MSIX ComServer Dialog Package COM Test</DisplayName>
+    <PublisherDisplayName>Acresso Test</PublisherDisplayName>
+    <Logo>Assets\AppStoreLogo.png</Logo>
+  </Properties>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.15042.0" MaxVersionTested="10.0.19500.0" />
+	<PackageDependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.24217.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+  </Dependencies>
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+  <Applications>
+    <Application Id="MFCComServerBGColorTest" Executable="MFCComServerBGColorTest.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements DisplayName="MFC Dialog Based ComServer Test App" Description="MFC Dialog Based ComServer Test App to Demo Packaged COM" BackgroundColor="transparent" Square150x150Logo="Assets\AppMedTile.png" Square44x44Logo="Assets\AppList.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\AppWideTile.png" Square310x310Logo="Assets\AppLargeTile.png" Square71x71Logo="Assets\AppSmallTile.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+      </uap:VisualElements>
+    <Extensions>        
+      <com:Extension Category="windows.comServer">
+        <com:ComServer>
+          <com:ExeServer Executable="MFCComServerBGColorTest.exe" DisplayName="MFCComServerBGColorTest">
+            <com:Class Id ="FA796308-1FB5-4289-B5DD-504D8499088E"
+                       DisplayName="MFCComServerBGColorTest Application"
+                       ProgId="MFCComServerBGColorTest.Application.1"
+                       VersionIndependentProgId="MFCComServerBGColorTest.Application">
+            </com:Class>            
+          </com:ExeServer>   
+          <com:ProgId Id="MFCComServerBGColorTest.Application"
+                      CurrentVersion="MFCComServerBGColorTest.Application.1" />
+          <com:ProgId Id="MFCComServerBGColorTest.Application.1"
+                      Clsid="FA796308-1FB5-4289-B5DD-504D8499088E" />
+
+        </com:ComServer>
+      </com:Extension>
+      <com:Extension Category="windows.comInterface">
+        <com:ComInterface>      
+          <com:Interface Id="46EC5D13-1362-46FE-A2D3-EC5A39F64A17"
+                         UseUniversalMarshaler="true">
+            <com:TypeLib Id="97E3C8AC-67BE-45E5-91EE-E563B68D6B12"
+                         VersionNumber="1.0" />
+          </com:Interface>
+          <com:TypeLib Id="97E3C8AC-67BE-45E5-91EE-E563B68D6B12">
+            <com:Version
+              DisplayName = "MFCComServerBGColorTest"
+              VersionNumber="1.0"
+              LocaleId="0"
+              LibraryFlag="0">
+              <com:Win32Path Path="MFCComServerBGColorTest.tlb" />
+            </com:Version>
+          </com:TypeLib>
+        </com:ComInterface>
+      </com:Extension>
+    </Extensions>
+    </Application>
+  </Applications>
+</Package>
