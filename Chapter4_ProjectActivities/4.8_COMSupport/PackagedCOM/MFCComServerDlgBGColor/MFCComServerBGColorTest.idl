@@ -1,0 +1,53 @@
+// MFCComServerBGColorTest.idl : type library source for MFCComServerBGColorTest.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (MFCComServerBGColorTest.tlb).
+
+[ uuid(97E3C8AC-67BE-45E5-91EE-E563B68D6B12), version(1.0) ]
+library MFCComServerBGColorTest
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CMFCComServerBGColorTestDoc
+	
+	[ uuid(DCF859E1-5E2B-4E49-9C5C-9DED49E6C1DA) ]
+	dispinterface IMFCComServerBGColorTest
+	{
+	properties:
+		//{{AFX_ODL_PROP(CMFCComServerBGColorTestDlg)
+		[id(1)] BSTR color;
+		//}}AFX_ODL_PROP
+
+	methods:
+		//{{AFX_ODL_METHOD(CMFCComServerBGColorTestDlg)		
+		[id(2)] void TestError(short wCode);
+		//}}AFX_ODL_METHOD
+	};
+
+	[uuid(46EC5D13-1362-46FE-A2D3-EC5A39F64A17),	// IDualMFCComServerBGColorTest
+		oleautomation,
+		dual
+	]
+	interface IDualMFCComServerBGColorTest : IDispatch
+	{
+		// For dual interfaces, methods and properties should 
+		// return HRESULTs and pass return values as parameters
+		// with the attributes "[out, retval]".
+
+		// Convert dispinterface properties...
+		[propput, id(1)] HRESULT color([in] BSTR newText);
+		[propget, id(1)] HRESULT color([out, retval] BSTR* retval);
+		[id(2)] HRESULT TestError([in] short wCode);
+
+	};
+
+	// CMFCComServerBGColorTestDoc Class information
+	
+	[ uuid(FA796308-1FB5-4289-B5DD-504D8499088E) ]
+	coclass MFCComServerBGColorTest
+	{
+		dispinterface IMFCComServerBGColorTest;
+		[default] interface IDualMFCComServerBGColorTest;
+	};
+};
